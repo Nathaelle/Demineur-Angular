@@ -1,0 +1,9 @@
+<!-- Exemple d'interpolation (admet nom de propriétés et expression à partir de celles-ci) -->
+<!-- <p>Cette grille possède {{ rows }} lignes et {{ cols }} colonnes</p> -->
+
+<div class="row" *ngFor="let row of grille">
+    <div class="cell" [class.clicked]="cell.clicked" [class.marked]="cell.marked && !cell.clicked" *ngFor="let cell of row" (click)="clicked(cell)" (contextmenu)="marked(cell, $event)">
+        <span class="bomb" *ngIf="cell.clicked && cell.bomb; else elseBlock">B</span>
+        <ng-template #elseBlock><span *ngIf="cell.clicked">{{ cell.nbBombAdj }}</span></ng-template>
+    </div>
+</div>

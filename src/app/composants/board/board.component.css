@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.row {
+    display: flex;
+}
+
+.cell {
+    width: 20px;
+    height: 20px;
+    border: 1px solid lightgray;
+    background-color: darkgray;
+    box-shadow: inset 1px 1px white;
+    text-align: center;
+}
+
+.clicked {
+    background-color: lightgray;
+}
+
+.marked {
+    background-color: lime;
+}
+
+.bomb {
+    color: red;
+}

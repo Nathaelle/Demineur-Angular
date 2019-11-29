@@ -31,7 +31,7 @@ export class BoardComponent implements OnInit, Observer {
     for(let i = 0; i < this.rows; i++) {
       this.grille[i] = new Array<Case>();
 
-      for(let j = 0; j < this.rows; j++) {
+      for(let j = 0; j < this.cols; j++) {
         this.grille[i][j] = new Case();
         this.grille[i][j].addObs(this);
       }

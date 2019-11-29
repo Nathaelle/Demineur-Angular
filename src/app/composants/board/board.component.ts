@@ -12,10 +12,12 @@ export class BoardComponent implements OnInit, Observer {
   private grille: Array<Array<Case>>;
   private difficulty: Difficulty;
   private _gameOver: boolean;
+  private score: number;
+  private clicksToWin: number;
 
   constructor() { 
-    this.rows = 19;
-    this.cols = 19;
+    this.rows = 9;
+    this.cols = 9;
     this.grille = new Array<Array<Case>>();
     this.difficulty = Difficulty.MEDIUM;
     this.gameOver = false;
@@ -39,6 +41,7 @@ export class BoardComponent implements OnInit, Observer {
 
   setBoard() {
     let nbBombs = Math.trunc(this.rows * this.cols * this.difficulty / 100);
+    this.clicksToWin = this.rows * this.cols - nbBombs;
     while(nbBombs > 0) {
       let i = Math.floor(Math.random() * this.rows);
       let j = Math.floor(Math.random() * this.cols);
@@ -83,6 +86,11 @@ export class BoardComponent implements OnInit, Observer {
   clicked(cell: Case) {
     if(!this.gameOver) {
       cell.clicked = true;
+      this.clicksToWin--;
+      this.score++;
+      if(this.clicksToWin === 0) {
+        this.gameOver = true;
+      }
     }
   }
 

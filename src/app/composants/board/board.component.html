@@ -7,3 +7,10 @@
         <ng-template #elseBlock><span *ngIf="cell.clicked">{{ cell.nbBombAdj }}</span></ng-template>
     </div>
 </div>
+
+<div *ngIf="gameOver" class="gameover">
+    <p class="perdu" *ngIf="clicksToWin !== 0; else secondBlock">BOOOM</p>
+    <ng-template #secondBlock>
+        <p class="gagne">C'est gagné !</p>
+    </ng-template>
+</div>

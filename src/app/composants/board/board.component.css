@@ -27,3 +27,27 @@
 .bomb {
     color: red;
 }
+
+.gameover {
+    position: absolute;
+    top: 15vh;
+}
+
+.gameover p {
+    text-align: center;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 50px;
+}
+
+.perdu {
+    font-size: 2em;
+    color: red;
+}
+
+.gagne {
+    width: 100%;
+    font-size: 2em;
+    color: green;
+}
